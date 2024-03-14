@@ -1,6 +1,6 @@
 const { createWriteStream } = require('fs');
 
-const LIMIT = 10_000;
+const LIMIT = 10_000_000;
 const fileName = 'data.json';
 
 function generateRandomStringObject() {
