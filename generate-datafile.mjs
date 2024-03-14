@@ -18,7 +18,7 @@ function generateRandomStringObject() {
   for (let i = 1; i <= LIMIT; i++) {
     writeStream.write(JSON.stringify(generateRandomStringObject()));
 
-    if (i % 10000 === 0) {
+    if (i % (LIMIT / 10) === 0) {
       console.log(`${i} records generated`);
     }
 
