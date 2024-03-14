@@ -6,6 +6,7 @@ import { MongoClient } from 'mongodb';
 export class RandomStringsService {
   private readonly dbName = 'sample';
   private readonly collectionName = 'strings';
+  private readonly indexName = 'name_1';
 
   constructor(
     @Inject(MONGO_CLIENT)
@@ -23,12 +24,24 @@ export class RandomStringsService {
     const db = this.mongoClient.db(this.dbName);
     const collection = db.collection(this.collectionName);
 
+    const indexExists = await collection.indexExists(this.indexName);
+
+    if (indexExists) {
+      return this.indexName;
+    }
+
     return collection.createIndex({ name: 1 });
   }
 
   async removeIndex() {
     const db = this.mongoClient.db(this.dbName);
     const collection = db.collection(this.collectionName);
+
+    const indexExists = await collection.indexExists(this.indexName);
+
+    if (!indexExists) {
+      return this.indexName;
+    }
 
     return collection.dropIndex('name_1');
   }
