@@ -12,8 +12,8 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "mongo:up": "docker-compose up -d",
-    "data:generate": "node generate-datafile.js",
-    "data:insert": "node insert-data-into-mongo.js",
+    "data:generate": "node generate-datafile.mjs",
+    "data:insert": "node insert-data-into-mongo.mjs",
     "perf:read": "node strings-perf.mjs"
   },
   "dependencies": {

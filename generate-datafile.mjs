@@ -1,4 +1,5 @@
-const { createWriteStream } = require('fs');
+import { createWriteStream } from "fs";
+
 
 const LIMIT = 10_000_000;
 const fileName = 'data.json';

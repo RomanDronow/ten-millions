@@ -1,11 +1,7 @@
-const { readFile } = require('fs/promises');
-const {
-  Worker,
-  isMainThread,
-  parentPort,
-  workerData,
-} = require('worker_threads');
-const { MongoClient } = require('mongodb');
+import { readFile } from "fs/promises";
+import { isMainThread, parentPort, Worker, workerData } from "worker_threads";
+import { MongoClient } from "mongodb";
+
 
 const numWorkers = 4;
 
